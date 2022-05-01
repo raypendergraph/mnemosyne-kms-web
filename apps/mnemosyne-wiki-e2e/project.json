@@ -1,0 +1,28 @@
+{
+  "root": "apps/mnemosyne-wiki-e2e",
+  "sourceRoot": "apps/mnemosyne-wiki-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/mnemosyne-wiki-e2e/cypress.json",
+        "devServerTarget": "mnemosyne-wiki:serve"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "mnemosyne-wiki:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/mnemosyne-wiki-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["mnemosyne-wiki"]
+}

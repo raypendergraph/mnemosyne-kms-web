@@ -1,0 +1,36 @@
+{
+  "root": "libs/data-access",
+  "sourceRoot": "libs/data-access/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "codegen": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": [
+          {
+            "command": "pwd"
+          },
+          {
+            "command": "npx graphql-codegen --verbose --config libs/data-access/codegen.yml"
+          }
+        ]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/data-access/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/data-access"],
+      "options": {
+        "jestConfig": "libs/data-access/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

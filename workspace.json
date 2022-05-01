@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "projects": {
+    "api": "apps/api",
+    "data-access": "libs/data-access",
+    "mnemosyne-wiki": "apps/mnemosyne-wiki",
+    "mnemosyne-wiki-e2e": "apps/mnemosyne-wiki-e2e",
+    "ui-components": "libs/ui-components"
+  }
+}

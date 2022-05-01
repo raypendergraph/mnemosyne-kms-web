@@ -1,0 +1,73 @@
+{
+  "root": "apps/mnemosyne-wiki",
+  "sourceRoot": "apps/mnemosyne-wiki/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/apps/mnemosyne-wiki",
+        "index": "apps/mnemosyne-wiki/src/index.html",
+        "baseHref": "/",
+        "main": "apps/mnemosyne-wiki/src/main.tsx",
+        "polyfills": "apps/mnemosyne-wiki/src/polyfills.ts",
+        "tsConfig": "apps/mnemosyne-wiki/tsconfig.app.json",
+        "assets": [
+          "apps/mnemosyne-wiki/src/favicon.ico",
+          "apps/mnemosyne-wiki/src/assets"
+        ],
+        "styles": ["apps/mnemosyne-wiki/src/styles.css"],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
+      },
+      "configurations": {
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/mnemosyne-wiki/src/environments/environment.ts",
+              "with": "apps/mnemosyne-wiki/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "options": {
+        "buildTarget": "mnemosyne-wiki:build",
+        "hmr": true
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "mnemosyne-wiki:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/mnemosyne-wiki/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/mnemosyne-wiki"],
+      "options": {
+        "jestConfig": "apps/mnemosyne-wiki/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

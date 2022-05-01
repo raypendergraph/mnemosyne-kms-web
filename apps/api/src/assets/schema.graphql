@@ -1,0 +1,110 @@
+scalar UUID
+scalar Timestamp
+
+interface GloballyIdentifiable {
+  uuid: UUID
+}
+interface ListDisplayable {
+  title: String!
+  caption: String!
+}
+
+interface Taggable {
+  tags: [Tag!]!
+}
+
+interface Notatable {
+  notations: [Notation!]!
+}
+
+type Journal implements GloballyIdentifiable & ListDisplayable & Taggable {
+  caption: String!
+  createdAt: Timestamp @timestamp(operations: [CREATE])
+  deletedAt: Timestamp
+  entries: [JournalEntry!]!
+  tags: [Tag!]!
+  title: String!
+  updatedAt: Timestamp @timestamp(operations: [UPDATE])
+  uuid: UUID
+}
+
+type JournalEntry implements GloballyIdentifiable & Taggable {
+  createdAt: Timestamp @timestamp(operations: [CREATE])
+  updatedAt: Timestamp @timestamp(operations: [UPDATE])
+  deletedAt: Timestamp
+  title: String
+  tags: [Tag!]!
+  uuid: UUID
+}
+
+enum NotationFormat {
+  CREOLE
+  PLAINTEXT
+}
+
+enum NotationKind {
+  INLINE
+  URL
+  BIBLIOGRAPHY
+}
+
+type Notation implements GloballyIdentifiable & Taggable {
+  createdAt: Timestamp @timestamp(operations: [CREATE])
+  content: String!
+  format: NotationFormat!
+  kind: NotationKind!
+  tags: [Tag!]!
+  updatedAt: Timestamp @timestamp(operations: [UPDATE])
+  uuid: UUID
+}
+
+type Concept implements GloballyIdentifiable & ListDisplayable & Taggable {
+  caption: String!
+  createdAt: Timestamp @timestamp(operations: [CREATE])
+  description: String!
+  notations: [Notation!]!
+  tags: [Tag!]!
+  title: String!
+  updatedAt: Timestamp @timestamp(operations: [UPDATE])
+  uuid: UUID
+}
+
+type Organization implements GloballyIdentifiable & ListDisplayable & Taggable {
+  caption: String!
+  createdAt: Timestamp @timestamp(operations: [CREATE])
+  inception: Timestamp
+  notations: [Notation!]!
+  tags: [Tag!]!
+  termination: Timestamp
+  title: String!
+  updatedAt: Timestamp @timestamp(operations: [UPDATE])
+  uuid: UUID
+}
+
+type Person implements GloballyIdentifiable & ListDisplayable & Taggable {
+  birth: Timestamp
+  caption: String!
+  createdAt: Timestamp @timestamp(operations: [CREATE])
+  death: Timestamp
+  notations: [Notation!]!
+  tags: [Tag!]!
+  title: String!
+  updatedAt: Timestamp @timestamp(operations: [UPDATE])
+  uuid: UUID
+}
+
+type Tag {
+  name: String! @unique
+}
+
+type Identity implements GloballyIdentifiable & ListDisplayable {
+  caption: String!
+  createdAt: Timestamp
+  title: String!
+  updatedAt: Timestamp
+  uuid: UUID
+}
+
+type Query {
+  _dummy: String
+}
