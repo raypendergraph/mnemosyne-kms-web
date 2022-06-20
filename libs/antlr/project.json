@@ -1,0 +1,32 @@
+{
+  "root": "libs/antlr",
+  "sourceRoot": "libs/antlr/src",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/antlr",
+        "main": "libs/antlr/src/index.ts",
+        "tsConfig": "libs/antlr/tsconfig.lib.json",
+        "assets": ["libs/antlr/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/antlr/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/antlr"],
+      "options": {
+        "jestConfig": "libs/antlr/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

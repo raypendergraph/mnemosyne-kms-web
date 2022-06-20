@@ -123,7 +123,7 @@ export type Person = GloballyIdentifiable & ListDisplayable & Taggable & {
 
 export type Query = {
   __typename?: 'Query';
-  _dummy?: Maybe<Scalars['String']>;
+  dummy?: Maybe<Scalars['String']>;
 };
 
 export type Tag = {
@@ -135,41 +135,44 @@ export type Taggable = {
   tags: Array<Tag>;
 };
 
-export type Unnamed_1_QueryVariables = Exact<{ [key: string]: never; }>;
+export type FakeQueryQueryVariables = Exact<{
+  input?: InputMaybe<Scalars['String']>;
+}>;
 
 
-export type Unnamed_1_Query = { __typename?: 'Query', _dummy?: string | null };
+export type FakeQueryQuery = { __typename: 'Query' };
 
 
-export const Document = gql`
-    {
-  _dummy
+export const FakeQueryDocument = gql`
+    query FakeQuery($input: String) {
+  __typename
 }
     `;
 
 /**
- * __useQuery__
+ * __useFakeQueryQuery__
  *
- * To run a query within a React component, call `useQuery` and pass it any options that fit your needs.
- * When your component renders, `useQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * To run a query within a React component, call `useFakeQueryQuery` and pass it any options that fit your needs.
+ * When your component renders, `useFakeQueryQuery` returns an object from Apollo Client that contains loading, error, and data properties
  * you can use to render your UI.
  *
  * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const { data, loading, error } = useQuery({
+ * const { data, loading, error } = useFakeQueryQuery({
  *   variables: {
+ *      input: // value for 'input'
  *   },
  * });
  */
-export function useQuery(baseOptions?: Apollo.QueryHookOptions<Query, QueryVariables>) {
+export function useFakeQueryQuery(baseOptions?: Apollo.QueryHookOptions<FakeQueryQuery, FakeQueryQueryVariables>) {
         const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<Query, QueryVariables>(Document, options);
+        return Apollo.useQuery<FakeQueryQuery, FakeQueryQueryVariables>(FakeQueryDocument, options);
       }
-export function useLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<Query, QueryVariables>) {
+export function useFakeQueryLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<FakeQueryQuery, FakeQueryQueryVariables>) {
           const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<Query, QueryVariables>(Document, options);
+          return Apollo.useLazyQuery<FakeQueryQuery, FakeQueryQueryVariables>(FakeQueryDocument, options);
         }
-export type QueryHookResult = ReturnType<typeof useQuery>;
-export type LazyQueryHookResult = ReturnType<typeof useLazyQuery>;
-export type QueryResult = Apollo.QueryResult<Query, QueryVariables>;
+export type FakeQueryQueryHookResult = ReturnType<typeof useFakeQueryQuery>;
+export type FakeQueryLazyQueryHookResult = ReturnType<typeof useFakeQueryLazyQuery>;
+export type FakeQueryQueryResult = Apollo.QueryResult<FakeQueryQuery, FakeQueryQueryVariables>;

@@ -1,0 +1,11 @@
+text:before {
+  content: "\00a0 ";
+}
+
+notation {
+
+}
+
+bold {
+  font-weight: bold;
+}

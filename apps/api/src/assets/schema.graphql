@@ -106,5 +106,5 @@ type Identity implements GloballyIdentifiable & ListDisplayable {
 }
 
 type Query {
-  _dummy: String
+  dummy: String
 }

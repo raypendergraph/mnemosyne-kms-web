@@ -1,6 +1,7 @@
 {
   "version": 2,
   "projects": {
+    "antlr": "libs/antlr",
     "api": "apps/api",
     "data-access": "libs/data-access",
     "mnemosyne-wiki": "apps/mnemosyne-wiki",

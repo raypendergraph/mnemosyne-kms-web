@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@mnemosyne-wiki/antlr": ["libs/antlr/src/index.ts"],
       "@mnemosyne-wiki/data-access": ["libs/data-access/src/index.ts"],
       "@mnemosyne-wiki/feature-sets": ["libs/feature-sets/src/index.ts"],
       "@mnemosyne-wiki/ui-components": ["libs/ui-components/src/index.ts"]

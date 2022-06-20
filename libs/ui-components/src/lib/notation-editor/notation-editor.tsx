@@ -1,13 +1,25 @@
 import styles from './notation-editor.module.css';
+import {Notation} from "@mnemosyne-wiki/data-access";
+import 'ace-builds/src-noconflict/ace';
+import "ace-builds/src-noconflict/mode-rst";
+import "ace-builds/src-noconflict/theme-github";
+import "ace-builds/src-noconflict/ext-language_tools";
+import AceEditor from "react-ace";
 
 /* eslint-disable-next-line */
-export interface NotationEditorProps {}
+export interface NotationEditorProps {
+  notation?: Notation
+  onChange: (value: string, event?: any) => void
+}
 
-export function NotationEditor(props: NotationEditorProps) {
+export function NotationEditor({onChange, notation}: NotationEditorProps) {
   return (
-    <div className={styles['container']}>
-      <h1>Welcome to NotationEditor!</h1>
-    </div>
+    <AceEditor
+      mode="java"
+      theme="github"
+      onChange={onChange}
+      editorProps={{ $blockScrolling: true }}
+    />
   );
 }
 

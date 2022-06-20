@@ -1,4 +1,5 @@
-query {
- _dummy
+
+query FakeQuery ($input: String){
+  __typename
 }
 
