@@ -1,10 +1,10 @@
 import { render } from '@testing-library/react';
 
-import UiComponents from './ui-components';
+import NotationEdit from './notation-edit';
 
-describe('UiComponents', () => {
+describe('NotationEdit', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<UiComponents />);
+    const { baseElement } = render(<NotationEdit />);
     expect(baseElement).toBeTruthy();
   });
 });

@@ -5,6 +5,7 @@ import "ace-builds/src-noconflict/mode-rst";
 import "ace-builds/src-noconflict/theme-github";
 import "ace-builds/src-noconflict/ext-language_tools";
 import AceEditor from "react-ace";
+import React from 'react';
 
 /* eslint-disable-next-line */
 export interface NotationEditorProps {

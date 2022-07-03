@@ -50,16 +50,16 @@ const sharedContextCache = new antlr4.PredictionContextCache();
 export default class CreoleParser extends antlr4.Parser {
 
     static grammarFileName = "Creole.g4";
-    static literalNames = [ null, "'|'", "'----'", "'\\\\'", null, null, 
-                            null, "'//'", null, null, null, "'**'", "'[['", 
+    static literalNames = [ null, "'|'", "'----'", "'\\\\'", null, null,
+                            null, "'//'", null, null, null, "'**'", "'[['",
                             "']]'", "'{{'", "'}}'" ];
-    static symbolicNames = [ null, null, null, "FORCED_LINEBREAK", "PARAGRAPH", 
-                             "SPACE", "LINEBREAK", "ITALICS", "BULLET_LEVEL", 
-                             "NUMBER_LEVEL", "HEADING_LEVEL", "BOLD", "LINK_LEFT", 
-                             "LINK_RIGHT", "IMAGE_LEFT", "IMAGE_RIGHT", 
+    static symbolicNames = [ null, null, null, "FORCED_LINEBREAK", "PARAGRAPH",
+                             "SPACE", "LINEBREAK", "ITALICS", "BULLET_LEVEL",
+                             "NUMBER_LEVEL", "HEADING_LEVEL", "BOLD", "LINK_LEFT",
+                             "LINK_RIGHT", "IMAGE_LEFT", "IMAGE_RIGHT",
                              "TEXT_SEQUENCE" ];
-    static ruleNames = [ "document", "text", "markup", "bold", "italics", 
-                         "paragraph", "bulletedItem", "bulletedList", "numberedItem", 
+    static ruleNames = [ "document", "text", "markup", "bold", "italics",
+                         "paragraph", "bulletedItem", "bulletedList", "numberedItem",
                          "numberedList", "heading", "link", "image", "horizontalLine" ];
 
     constructor(input) {
@@ -82,7 +82,7 @@ export default class CreoleParser extends antlr4.Parser {
 	    var _la = 0; // Token type
 	    try {
 	        this.enterOuterAlt(localctx, 1);
-	        this.state = 31; 
+	        this.state = 31;
 	        this._errHandler.sync(this);
 	        _la = this._input.LA(1);
 	        do {
@@ -106,7 +106,7 @@ export default class CreoleParser extends antlr4.Parser {
 	                break;
 
 	            }
-	            this.state = 33; 
+	            this.state = 33;
 	            this._errHandler.sync(this);
 	            _la = this._input.LA(1);
 	        } while((((_la) & ~0x1f) == 0 && ((1 << _la) & ((1 << CreoleParser.PARAGRAPH) | (1 << CreoleParser.LINEBREAK) | (1 << CreoleParser.ITALICS) | (1 << CreoleParser.BULLET_LEVEL) | (1 << CreoleParser.NUMBER_LEVEL) | (1 << CreoleParser.HEADING_LEVEL) | (1 << CreoleParser.BOLD) | (1 << CreoleParser.LINK_LEFT) | (1 << CreoleParser.IMAGE_LEFT) | (1 << CreoleParser.TEXT_SEQUENCE))) !== 0));
@@ -230,7 +230,7 @@ export default class CreoleParser extends antlr4.Parser {
 	        this.enterOuterAlt(localctx, 1);
 	        this.state = 50;
 	        this.match(CreoleParser.BOLD);
-	        this.state = 53; 
+	        this.state = 53;
 	        this._errHandler.sync(this);
 	        _la = this._input.LA(1);
 	        do {
@@ -248,7 +248,7 @@ export default class CreoleParser extends antlr4.Parser {
 	            default:
 	                throw new antlr4.error.NoViableAltException(this);
 	            }
-	            this.state = 55; 
+	            this.state = 55;
 	            this._errHandler.sync(this);
 	            _la = this._input.LA(1);
 	        } while(_la===CreoleParser.LINEBREAK || _la===CreoleParser.TEXT_SEQUENCE);
@@ -278,7 +278,7 @@ export default class CreoleParser extends antlr4.Parser {
 	        this.enterOuterAlt(localctx, 1);
 	        this.state = 59;
 	        this.match(CreoleParser.ITALICS);
-	        this.state = 62; 
+	        this.state = 62;
 	        this._errHandler.sync(this);
 	        _la = this._input.LA(1);
 	        do {
@@ -296,7 +296,7 @@ export default class CreoleParser extends antlr4.Parser {
 	            default:
 	                throw new antlr4.error.NoViableAltException(this);
 	            }
-	            this.state = 64; 
+	            this.state = 64;
 	            this._errHandler.sync(this);
 	            _la = this._input.LA(1);
 	        } while(_la===CreoleParser.LINEBREAK || _la===CreoleParser.TEXT_SEQUENCE);
@@ -391,7 +391,7 @@ export default class CreoleParser extends antlr4.Parser {
 	    this.enterRule(localctx, 14, CreoleParser.RULE_bulletedList);
 	    try {
 	        this.enterOuterAlt(localctx, 1);
-	        this.state = 78; 
+	        this.state = 78;
 	        this._errHandler.sync(this);
 	        var _alt = 1;
 	        do {
@@ -403,7 +403,7 @@ export default class CreoleParser extends antlr4.Parser {
 	        	default:
 	        		throw new antlr4.error.NoViableAltException(this);
 	        	}
-	        	this.state = 80; 
+	        	this.state = 80;
 	        	this._errHandler.sync(this);
 	        	_alt = this._interp.adaptivePredict(this._input,8, this._ctx);
 	        } while ( _alt!=2 && _alt!=antlr4.atn.ATN.INVALID_ALT_NUMBER );
@@ -473,7 +473,7 @@ export default class CreoleParser extends antlr4.Parser {
 	    this.enterRule(localctx, 18, CreoleParser.RULE_numberedList);
 	    try {
 	        this.enterOuterAlt(localctx, 1);
-	        this.state = 90; 
+	        this.state = 90;
 	        this._errHandler.sync(this);
 	        var _alt = 1;
 	        do {
@@ -485,7 +485,7 @@ export default class CreoleParser extends antlr4.Parser {
 	        	default:
 	        		throw new antlr4.error.NoViableAltException(this);
 	        	}
-	        	this.state = 92; 
+	        	this.state = 92;
 	        	this._errHandler.sync(this);
 	        	_alt = this._interp.adaptivePredict(this._input,10, this._ctx);
 	        } while ( _alt!=2 && _alt!=antlr4.atn.ATN.INVALID_ALT_NUMBER );
@@ -1124,7 +1124,7 @@ class BulletedListContext extends antlr4.ParserRuleContext {
 
 
 
-class NumberedItemContext extends antlr4.ParserRuleContext {
+export class NumberedItemContext extends antlr4.ParserRuleContext {
 
     constructor(parser, parent, invokingState) {
         if(parent===undefined) {
@@ -1402,17 +1402,17 @@ class HorizontalLineContext extends antlr4.ParserRuleContext {
 
 
 
-CreoleParser.DocumentContext = DocumentContext; 
-CreoleParser.TextContext = TextContext; 
-CreoleParser.MarkupContext = MarkupContext; 
-CreoleParser.BoldContext = BoldContext; 
-CreoleParser.ItalicsContext = ItalicsContext; 
-CreoleParser.ParagraphContext = ParagraphContext; 
-CreoleParser.BulletedItemContext = BulletedItemContext; 
-CreoleParser.BulletedListContext = BulletedListContext; 
-CreoleParser.NumberedItemContext = NumberedItemContext; 
-CreoleParser.NumberedListContext = NumberedListContext; 
-CreoleParser.HeadingContext = HeadingContext; 
-CreoleParser.LinkContext = LinkContext; 
-CreoleParser.ImageContext = ImageContext; 
-CreoleParser.HorizontalLineContext = HorizontalLineContext; 
+CreoleParser.DocumentContext = DocumentContext;
+CreoleParser.TextContext = TextContext;
+CreoleParser.MarkupContext = MarkupContext;
+CreoleParser.BoldContext = BoldContext;
+CreoleParser.ItalicsContext = ItalicsContext;
+CreoleParser.ParagraphContext = ParagraphContext;
+CreoleParser.BulletedItemContext = BulletedItemContext;
+CreoleParser.BulletedListContext = BulletedListContext;
+CreoleParser.NumberedItemContext = NumberedItemContext;
+CreoleParser.NumberedListContext = NumberedListContext;
+CreoleParser.HeadingContext = HeadingContext;
+CreoleParser.LinkContext = LinkContext;
+CreoleParser.ImageContext = ImageContext;
+CreoleParser.HorizontalLineContext = HorizontalLineContext;

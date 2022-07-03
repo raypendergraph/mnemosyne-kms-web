@@ -6,7 +6,7 @@ export interface NotationViewerProps {
   notationContent: string | undefined
 }
 
-function NotationViewer({notationContent}: NotationViewerProps) {
+export function NotationViewer({notationContent}: NotationViewerProps) {
   const [notationRoot, setNotationRoot] = useState<DOMElement<HTMLAttributes<unknown>, Element> | undefined>(undefined)
   useEffect(()=>{
     if (notationContent === '' || notationContent === undefined){
@@ -22,7 +22,7 @@ function NotationViewer({notationContent}: NotationViewerProps) {
   }
 
   return (
-    <div className={styles['notation']}>
+    <div>
       {notationRoot}
     </div>
   );

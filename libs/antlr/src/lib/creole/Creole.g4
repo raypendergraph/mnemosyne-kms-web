@@ -11,13 +11,13 @@ text
 markup
   :bulletedList
   |numberedList
+  |link
+  |image
   |horizontalLine
   |bold
   |italics
   |paragraph
   |heading
-  |link
-  |image
   ;
 
 bold
@@ -54,16 +54,17 @@ heading
 
 //[[URL]] or [[URL|linktext]]
 link
-  : LINK_LEFT (TEXT_SEQUENCE|TEXT_SEQUENCE '|' TEXT_SEQUENCE) LINK_RIGHT
+  : LINK_LEFT TEXT_SEQUENCE LINK_RIGHT
   ;
 //{{image.jpg}} or  {{image.jpg|title}}
 image
-  : IMAGE_LEFT (TEXT_SEQUENCE|TEXT_SEQUENCE '|' TEXT_SEQUENCE) IMAGE_RIGHT
+  : IMAGE_LEFT TEXT_SEQUENCE IMAGE_RIGHT
   ;
 
 horizontalLine
   : LINEBREAK '----'
   ;
+
 
 fragment ANY_CHARACTER
   : (LETTER|DIGIT|SYMBOL|SPACE)
@@ -90,12 +91,31 @@ fragment SYMBOL
   | '~'
   | '"'
   | '+'
+//  | '['
+//  | ']'
+  | '|'
   ;
 
 FORCED_LINEBREAK
   : '\\\\'
   ;
 
+
+LINK_LEFT
+  : '[['
+  ;
+
+LINK_RIGHT
+  : ']]'
+  ;
+
+IMAGE_LEFT
+  : '{{'
+  ;
+
+IMAGE_RIGHT
+  : '}}'
+  ;
 
 PARAGRAPH
   : (LINEBREAK LINEBREAK)
@@ -129,20 +149,6 @@ BOLD
   : '**'
   ;
 
-LINK_LEFT
-  : '[['
-  ;
-LINK_RIGHT
-  : ']]'
-  ;
-
-IMAGE_LEFT
-  : '{{'
-  ;
-
-IMAGE_RIGHT
-  : '}}'
-  ;
 
 
 TEXT_SEQUENCE

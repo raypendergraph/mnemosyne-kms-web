@@ -50,20 +50,38 @@ const decisionsToDFA = atn.decisionToState.map( (ds, index) => new antlr4.dfa.DF
 
 export default class CreoleLexer extends antlr4.Lexer {
 
+  static EOF = antlr4.Token.EOF;
+  static T__0 = 1;
+  static T__1 = 2;
+  static FORCED_LINEBREAK = 3;
+  static PARAGRAPH = 4;
+  static SPACE = 5;
+  static LINEBREAK = 6;
+  static ITALICS = 7;
+  static BULLET_LEVEL = 8;
+  static NUMBER_LEVEL = 9;
+  static HEADING_LEVEL = 10;
+  static BOLD = 11;
+  static LINK_LEFT = 12;
+  static LINK_RIGHT = 13;
+  static IMAGE_LEFT = 14;
+  static IMAGE_RIGHT = 15;
+  static TEXT_SEQUENCE = 16;
+
     static grammarFileName = "Creole.g4";
     static channelNames = [ "DEFAULT_TOKEN_CHANNEL", "HIDDEN" ];
 	static modeNames = [ "DEFAULT_MODE" ];
-	static literalNames = [ null, "'|'", "'----'", "'\\\\'", null, null, null, 
-                         "'//'", null, null, null, "'**'", "'[['", "']]'", 
+	static literalNames = [ null, "'|'", "'----'", "'\\\\'", null, null, null,
+                         "'//'", null, null, null, "'**'", "'[['", "']]'",
                          "'{{'", "'}}'" ];
-	static symbolicNames = [ null, null, null, "FORCED_LINEBREAK", "PARAGRAPH", 
-                          "SPACE", "LINEBREAK", "ITALICS", "BULLET_LEVEL", 
-                          "NUMBER_LEVEL", "HEADING_LEVEL", "BOLD", "LINK_LEFT", 
+	static symbolicNames = [ null, null, null, "FORCED_LINEBREAK", "PARAGRAPH",
+                          "SPACE", "LINEBREAK", "ITALICS", "BULLET_LEVEL",
+                          "NUMBER_LEVEL", "HEADING_LEVEL", "BOLD", "LINK_LEFT",
                           "LINK_RIGHT", "IMAGE_LEFT", "IMAGE_RIGHT", "TEXT_SEQUENCE" ];
-	static ruleNames = [ "T__0", "T__1", "ANY_CHARACTER", "DIGIT", "LETTER", 
-                      "SYMBOL", "FORCED_LINEBREAK", "PARAGRAPH", "SPACE", 
-                      "LINEBREAK", "ITALICS", "BULLET_LEVEL", "NUMBER_LEVEL", 
-                      "HEADING_LEVEL", "BOLD", "LINK_LEFT", "LINK_RIGHT", 
+	static ruleNames = [ "T__0", "T__1", "ANY_CHARACTER", "DIGIT", "LETTER",
+                      "SYMBOL", "FORCED_LINEBREAK", "PARAGRAPH", "SPACE",
+                      "LINEBREAK", "ITALICS", "BULLET_LEVEL", "NUMBER_LEVEL",
+                      "HEADING_LEVEL", "BOLD", "LINK_LEFT", "LINK_RIGHT",
                       "IMAGE_LEFT", "IMAGE_RIGHT", "TEXT_SEQUENCE" ];
 
     constructor(input) {
@@ -76,23 +94,23 @@ export default class CreoleLexer extends antlr4.Lexer {
     }
 }
 
-CreoleLexer.EOF = antlr4.Token.EOF;
-CreoleLexer.T__0 = 1;
-CreoleLexer.T__1 = 2;
-CreoleLexer.FORCED_LINEBREAK = 3;
-CreoleLexer.PARAGRAPH = 4;
-CreoleLexer.SPACE = 5;
-CreoleLexer.LINEBREAK = 6;
-CreoleLexer.ITALICS = 7;
-CreoleLexer.BULLET_LEVEL = 8;
-CreoleLexer.NUMBER_LEVEL = 9;
-CreoleLexer.HEADING_LEVEL = 10;
-CreoleLexer.BOLD = 11;
-CreoleLexer.LINK_LEFT = 12;
-CreoleLexer.LINK_RIGHT = 13;
-CreoleLexer.IMAGE_LEFT = 14;
-CreoleLexer.IMAGE_RIGHT = 15;
-CreoleLexer.TEXT_SEQUENCE = 16;
+// CreoleLexer.EOF = antlr4.Token.EOF;
+// CreoleLexer.T__0 = 1;
+// CreoleLexer.T__1 = 2;
+// CreoleLexer.FORCED_LINEBREAK = 3;
+// CreoleLexer.PARAGRAPH = 4;
+// CreoleLexer.SPACE = 5;
+// CreoleLexer.LINEBREAK = 6;
+// CreoleLexer.ITALICS = 7;
+// CreoleLexer.BULLET_LEVEL = 8;
+// CreoleLexer.NUMBER_LEVEL = 9;
+// CreoleLexer.HEADING_LEVEL = 10;
+// CreoleLexer.BOLD = 11;
+// CreoleLexer.LINK_LEFT = 12;
+// CreoleLexer.LINK_RIGHT = 13;
+// CreoleLexer.IMAGE_LEFT = 14;
+// CreoleLexer.IMAGE_RIGHT = 15;
+// CreoleLexer.TEXT_SEQUENCE = 16;
 
 
 

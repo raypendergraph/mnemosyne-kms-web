@@ -1,7 +1,7 @@
 // Generated from Creole.g4 by ANTLR 4.10.1
 // jshint ignore: start
 import antlr4 from 'antlr4'
-import {ErrorNode, ParseTreeListener,} from "antlr4/tree/Tree";
+import {ErrorNode} from "antlr4/tree/Tree";
 import React, {DOMElement, HTMLAttributes} from 'react'
 import {CreoleParser, CreoleLexer, CreoleListener} from '@mnemosyne-wiki/antlr'
 
@@ -50,7 +50,12 @@ export class ViewerListener extends CreoleListener {
   }
 
   getDocumentElement() {
-    return this.documentElement
+    const element = this.documentElement
+    this.documentElement = undefined
+    while(this.stack.length > 0){
+      this.stack.pop()
+    }
+    return element
   }
 
   // eslint-disable-next-line @typescript-eslint/no-empty-function
@@ -89,7 +94,11 @@ export class ViewerListener extends CreoleListener {
     this.enterTag()
   }
 
-  override enterBulletedItem(_:unknown) {
+  override enterBulletedItem(context :unknown) {
+    this.enterTag()
+  }
+
+  override enterBulletedList(_: unknown) {
     this.enterTag()
   }
 
@@ -122,53 +131,56 @@ export class ViewerListener extends CreoleListener {
   override exitText(ctx:unknown) {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
-    this.exitTag('text', undefined, ctx.getText())
+    this.exitTag('m-text', undefined, ctx.getText())
   }
 
   override exitBold(_:unknown) {
-    this.exitTag('bold')
+    this.exitTag('m-bold')
   }
 
   override exitItalics(_:unknown) {
-    this.exitTag('italics')
+    this.exitTag('m-italic')
   }
 
   override exitParagraph(_:unknown) {
-    this.exitTag('paragraph')
+    this.exitTag('m-paragraph')
   }
 
-  override exitBulletedItem(_:unknown) {
-    this.exitTag('bulleted-item')
+  override exitBulletedItem(context: unknown) {
+    this.exitTag('m-bulleted-item' )
   }
 
   override exitBulletedList(_:unknown) {
-    this.exitTag('bulleted-list')
+    this.exitTag('m-bulleted-list')
   }
 
-  override exitNumberedItem(_:unknown) {
-    this.exitTag('numbered-item')
+  override exitNumberedItem(context: unknown) {
+    this.exitTag('m-numbered-item' )
   }
 
   override exitNumberedList(_:unknown) {
-    this.exitTag('numbered-list')
+    this.exitTag('m-numbered-list')
   }
 
   override exitHeading(_:unknown) {
-    this.exitTag('heading')
+    this.exitTag('m-heading')
   }
 
   override exitLink(_:unknown) {
-    this.exitTag('link')
+
+    this.exitTag('m-link')
   }
 
   override exitImage(_:unknown) {
-    this.exitTag('image')
+    this.exitTag('m-image')
   }
 
   override exitHorizontalLine(_:unknown) {
-    this.exitTag('hr')
+    this.exitTag('m-hr')
   }
 }
+
+const listener = new ViewerListener()
 
 export function renderCreoleMarkup(markup: string): DOMElement<HTMLAttributes<unknown>, Element> | undefined {
   const chars = new antlr4.InputStream(markup);
@@ -178,7 +190,6 @@ export function renderCreoleMarkup(markup: string): DOMElement<HTMLAttributes<un
   const tokens  = new antlr4.CommonTokenStream(lexer)
   const parser = new CreoleParser(tokens)
   const tree = parser.document()
-  const listener = new ViewerListener()
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   antlr4.tree.ParseTreeWalker.DEFAULT.walk(listener, tree)

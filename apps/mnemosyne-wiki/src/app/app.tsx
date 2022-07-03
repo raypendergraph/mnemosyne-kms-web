@@ -1,9 +1,8 @@
 // apps/nx-apollo/src/app/app.tsx
 import { ApolloClient, InMemoryCache, ApolloProvider, useQuery, gql } from "@apollo/client";
-import React, {useState} from 'react';
+import React from 'react';
 import './app.module.css';
-import {NotationEditor} from '@mnemosyne-wiki/ui-components'
-import NotationViewer from "../../../../libs/ui-components/src/lib/notation-viewer/notation-viewer";
+import NotationEditPage from "../pages/notation-edit/notation-edit";
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 const client = new ApolloClient({
@@ -12,13 +11,8 @@ const client = new ApolloClient({
 });
 
 function App() {
-  const [content, setContent] = useState<string|undefined>(undefined)
-  const onEditorContentChange = function(evt: string){
-    setContent(evt)
-  }
   return (<ApolloProvider client={client}>
-    <NotationEditor onChange={onEditorContentChange}/>
-    <NotationViewer notationContent={content} />
+    <NotationEditPage></NotationEditPage>
   </ApolloProvider>)
 }
 
