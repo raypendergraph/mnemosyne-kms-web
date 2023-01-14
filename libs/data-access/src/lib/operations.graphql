@@ -1,5 +1,0 @@
-
-query FakeQuery ($input: String){
-  __typename
-}
-
