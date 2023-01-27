@@ -2,7 +2,7 @@
 // jshint ignore: start
 import antlr4, { ErrorNode } from 'antlr4'
 import React, { DOMElement, HTMLAttributes } from 'react'
-import { CreoleListener, CreoleParser } from '../../../antlr/src';
+import { CreoleListener, CreoleParser } from '../../antlr/src';
 
 export class ViewerListener extends CreoleListener {
   private documentElement: React.DOMElement<HTMLAttributes<unknown>, Element> | undefined
